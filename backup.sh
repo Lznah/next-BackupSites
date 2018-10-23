@@ -6,6 +6,7 @@ IFS=,
 
 folder=$(date +%Y%m%d_%H%M%S)
 mkdir $folder
+
 while IFS=, read -r name ip user mysqluser mysqlpassword path
 do
 	if [ -n "$2" ];
