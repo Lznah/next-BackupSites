@@ -9,12 +9,12 @@ mkdir $folder
 
 while IFS=, read -r name ip user mysqluser mysqlpassword path
 do
-	if [ -n "$2" ];
+	if ! [ -z "$2" ];
 	then if [ "$2" != "$name" ]; then continue; fi
 	fi
   folder2=$(date +%Y%m%d_%H%M%S)
   mkdir $folder"/"$name"-"$folder2
-  ssh $user"@"$ip "mysqldump -u '$mysqluser' -p$mysqlpassword --all-databases --single-transaction --quick --lock-tables=false" > $folder"/"$name"-"$folder2"/"$(date +%Y%m%d_%H%M%S)".sql"
+  (ssh $user"@"$ip "mysqldump -u '$mysqluser' -p$mysqlpassword --all-databases --single-transaction --quick --lock-tables=false" < /dev/null) > $folder"/"$name"-"$folder2"/"$(date +%Y%m%d_%H%M%S)".sql"
   scp -r $user"@"$ip:$path"/" $folder"/"$name"-"$folder2"/"
 done < "$1"
 IFS=$OLDIFS
