@@ -27,7 +27,7 @@ name,IP|domain,user,mysqluser,mysqlpassword,folder
 - mysqlpassword
 - folder that will be recursively copied
 ### Example of page_list
-Google,google.com,root,
+Google,google.com,root,google,G00GL3,/var/www/html
 
 If you do not want to type every single password for each server in your list, make sure that you have added your private key to .ssh/authorized_keys on each server.
 
