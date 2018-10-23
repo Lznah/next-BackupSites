@@ -29,7 +29,7 @@ name,IP|domain,user,mysqluser,mysqlpassword,folder
 ### Example of page_list
 Google,google.com,root,
 
-If you do not want to type every single password for each server in your list, make sure that you have added your private to .ssh/authorized_keys on each server.
+If you do not want to type every single password for each server in your list, make sure that you have added your private key to .ssh/authorized_keys on each server.
 
 You can use teh script addkeys.sh to add your key on each site.
 ```
